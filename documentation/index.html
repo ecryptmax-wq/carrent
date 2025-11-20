@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarRent - Project Documentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --border: #e2e8f0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f1f5f9;
+      color: var(--dark);
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      color: white;
+      padding: 3rem 0;
+      text-align: center;
+      border-radius: 0 0 16px 16px;
+      margin-bottom: 2rem;
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.1rem; opacity: 0.9; }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+    }
+    section {
+      background: white;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+    h2 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h3 {
+      color: var(--dark);
+      font-size: 1.4rem;
+      margin: 1.5rem 0 0.75rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+    }
+    ul, ol {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+    li { margin: 0.5rem 0; }
+    code {
+      background: #f1f5f9;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #dc2626;
+    }
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+    }
+    th {
+      background: #f8fafc;
+      font-weight: 600;
+    }
+    .note {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 1rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1rem 0;
+    }
+    .success {
+      background: #d1fae5;
+      border-left: 4px solid #10b981;
+      padding: 1rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1rem 0;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    .btn:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1><i class="fas fa-car"></i> CarRent</h1>
+      <p>Modern Car Rental Landing Page with Google Forms Integration</p>
+      <div class="badge">Version 1.0 | November 10, 2025</div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Overview -->
+    <section id="overview">
+      <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+      <p>
+        <strong>CarRent</strong> is a fully responsive, single-page car rental website built with HTML, CSS, and JavaScript. It features:
+      </p>
+      <ul>
+        <li>Interactive booking form with real-time vehicle selection</li>
+        <li>Checkout modal with pre-filled trip details</li>
+        <li>Google Forms backend for collecting booking data</li>
+        <li>Leaflet.js map, Font Awesome icons, and Toastr notifications</li>
+        <li>No server required — 100% static</li>
+      </ul>
+      <a href="../index.html" class="btn" target="_blank">View Live Site</a>
+    </section>
+
+    <!-- File Structure -->
+    <section id="structure">
+      <h2><i class="fas fa-folder-open"></i> File Structure</h2>
+      <pre>
+carrent/
+├── index.html
+├── documentation/
+│   └── index.html        ← This file
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   ├── script.js
+│   │   └── leaflet.js
+│   ├── img/              ← Car images go here
+│   │   ├── bmw.jpg
+│   │   ├── mercedes-cclass.jpg
+│   │   └── ...
+│   └── fontawesome/
+├── libs/
+│   └── toastr/
+│       ├── toastr.min.js
+│       └── toastr.min.css
+      </pre>
+    </section>
+
+    <!-- Customizing Images -->
+    <section id="images">
+      <h2><i class="fas fa-image"></i> Customizing Images</h2>
+      <h3>1. Car Images in Dropdown</h3>
+      <p>Each car option uses <code>data-img</code> to show preview in modal:</p>
+      <pre>&lt;option value="BMW 3 Series" data-img="assets/img/bmw.jpg"&gt;BMW 3 Series&lt;/option&gt;</pre>
+      <p><strong>Steps:</strong></p>
+      <ol>
+        <li>Place your image in <code>assets/img/</code></li>
+        <li>Update <code>data-img="assets/img/your-car.jpg"</code></li>
+        <li>Use 800x600px JPG/PNG for best quality</li>
+      </ol>
+
+      <h3>2. Vehicle Cards</h3>
+      <p>Replace Unsplash images:</p>
+      <pre>&lt;img src="assets/img/toyota-camry.jpg" alt="Toyota Camry"&gt;</pre>
+    </section>
+
+    <!-- Google Forms Integration -->
+    <section id="google-forms">
+      <h2><i class="fas fa-google"></i> Google Forms Integration</h2>
+
+      <div class="note">
+        <strong>Warning</strong>: You <strong>must</strong> create a Google Form with <strong>exact field order and types</strong>.
+      </div>
+
+      <h3>Step 1: Create Google Form</h3>
+      <ol>
+        <li>Go to <a href="https://forms.google.com" target="_blank">forms.google.com</a></li>
+        <li>Create <strong>Blank Form</strong></li>
+        <li>Title: <code>Your Title</code></li>
+        <li><strong>Ensure the form questions are added in this exact order:</strong></li>
+      </ol>
+
+      <h3>Step 2: Add Questions (Exact Order)</h3>
+      <table>
+        <tr><th>#</th><th>Label</th><th>Type</th></tr>
+        <tr><td>1</td><td>First Name</td><td>Short answer</td></tr>
+        <tr><td>2</td><td>Last Name</td><td>Short answer</td></tr>
+        <tr><td>3</td><td>Phone Number</td><td>Short answer</td></tr>
+        <tr><td>4</td><td>Age</td><td>Short answer</td></tr>
+        <tr><td>5</td><td>Zip Code</td><td>Short answer</td></tr>
+        <tr><td>6</td><td>Email</td><td>Short answer</td></tr>
+        <tr><td>7</td><td>Confirm Email</td><td>Short answer</td></tr>
+        <tr><td>8</td><td>Address</td><td>Paragraph</td></tr>
+        <tr><td>9</td><td>City</td><td>Short answer</td></tr>
+        <tr><td>10</td><td>Pickup Location</td><td>Short answer</td></tr>
+        <tr><td>11</td><td>Pickup Date</td><td>Short answer</td></tr>
+        <tr><td>12</td><td>Pickup Time</td><td>Short answer</td></tr>
+        <tr><td>13</td><td>Selected Car</td><td>Short answer</td></tr>
+      </table>
+
+      <h3>Step 3: Get <code>entry.xxx</code> IDs</h3>
+      <ol>
+        <li>Click <strong>Send</strong> → <strong>&lt;/&gt;</strong> (Embed)</li>
+        <li>Or open form in preview → Right-click → <strong>Inspect</strong></li>
+        <li>Find inputs like:</li>
+        <li><strong>Make sure each <code>entry.xxx</code> field matches the corresponding form column exactly and is not mixed up.</strong></li>
+      </ol>
+      <pre>&lt;input name="entry.1190199788" ...&gt;</pre>
+
+      <h3>Step 4: Get Form Action URL</h3>
+      <p>From embed code:</p>
+      <pre>https://docs.google.com/forms/d/e/<strong>YOUR_FORM_ID</strong>/formResponse</pre>
+
+      <h3>Step 5: Update Script in <code>index.html</code></
+
+      <p>Add this script <strong>before</strong> <code>&lt;/body&gt;</code>:</p>
+      <pre>
+&lt;script&gt;
+document.getElementById("checkout-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // Copy booking data to hidden fields
+  document.getElementById("pickup-date").value = document.getElementById("pick-up-date-ph").textContent.trim();
+  document.getElementById("pickup-time").value = document.getElementById("pick-up-time-ph").textContent.trim();
+  document.getElementById("pickup-location").value = document.getElementById("pickup-location-ph").textContent.trim();
+  document.getElementById("selected-car").value = document.getElementById("selected-car-ph").textContent.trim();
+
+  const formData = new FormData();
+  formData.append("entry.1190199788", document.getElementById("firstName").value);
+  formData.append("entry.2013771470", document.getElementById("lastName").value);
+  formData.append("entry.455831811", document.getElementById("phone").value);
+  formData.append("entry.1600546778", document.getElementById("age").value);
+  formData.append("entry.1170856035", document.getElementById("zip").value);
+  formData.append("entry.1950349338", document.getElementById("email").value);
+  formData.append("entry.1140226880", document.getElementById("address").value);
+  formData.append("entry.1148995167", document.getElementById("city").value);
+  formData.append("entry.755968688", document.getElementById("pickup-location").value);
+  formData.append("entry.1394724332", document.getElementById("pickup-date").value);
+  formData.append("entry.1589860892", document.getElementById("pickup-time").value);
+  formData.append("entry.1049012762", document.getElementById("selected-car").value);
+
+  fetch("https://docs.google.com/forms/d/e/<strong>YOUR_FORM_ID_HERE</strong>/formResponse", { 
+    method: "POST",
+    mode: "no-cors",
+    body: formData
+  }).then(() => {
+    alert("Booking confirmed! We'll contact you soon.");
+    document.getElementById("checkoutModal").classList.remove("show");
+  }).catch(() => {
+    alert("Booking submitted!");
+  });
+});
+&lt;/script&gt;
+      </pre>
+
+      <div class="success">
+        <strong>Success</strong>: Replace <code>YOUR_FORM_ID_HERE</code> and all <code>entry.xxx</code> with your real values.
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="flow">
+      <h2><i class="fas fa-cogs"></i> Booking Flow</h2>
+      <ol>
+        <li>User selects location, date, time, car → clicks <strong>Book Now</strong></li>
+        <li>Modal opens with pre-filled trip details</li>
+        <li>User enters personal info</li>
+        <li>JS copies hidden values (date, car, etc.)</li>
+        <li>Form submits to Google Forms via <code>fetch()</code></li>
+        <li>Success message → modal closes</li>
+      </ol>
+    </section>
+
+    <!-- Testing -->
+    <section id="testing">
+      <h2><i class="fas fa-check-circle"></i> Testing the Form</h2>
+      <ol>
+        <li>Fill booking form → click "Book Now"</li>
+        <li>Complete checkout modal</li>
+        <li>Click "Confirm Booking"</li>
+        <li>Check <strong>Google Sheets</strong> (Responses tab)</li>
+      </ol>
+    </section>
+
+    <!-- Deployment -->
+    <section id="deploy">
+      <h2><i class="fas fa-rocket"></i> Deployment</h2>
+      <h3>GitHub Pages</h3>
+      <pre>
+git init
+git add .
+git commit -m "Deploy"
+git push origin main
+      </pre>
+      <p>→ Settings → Pages → Select <code>main</code> branch</p>
+
+      <h3>Netlify / Vercel</h3>
+      <p>Drag & drop the folder → live in 30 seconds</p>
+    </section>
+
+    <!-- Final Checklist -->
+    <section id="checklist">
+      <h2><i class="fas fa-clipboard-check"></i> Final Checklist</h2>
+      <table>
+        <tr><td>Replace all car images</td><td>[ ]</td></tr>
+        <tr><td>Update company info (logo, contact)</td><td>[ ]</td></tr>
+        <tr><td>Create Google Form (13 fields)</td><td>[ ]</td></tr>
+        <tr><td>Get <code>entry.xxx</code> IDs</td><td>[ ]</td></tr>
+        <tr><td>Get <code>formResponse</code> URL</td><td>[ ]</td></tr>
+        <tr><td>Paste script with correct IDs</td><td>[ ]</td></tr>
+        <tr><td>Test submission → check Sheets</td><td>[ ]</td></tr>
+      </table>
+    </section>
+
+  </div>
+
+  <div class="footer">
+    <p>© 2025 CarRent Documentation | Built with <strong>❤︎</strong></p>
+  </div>
+
+</body>
+</html>
